@@ -2,8 +2,7 @@ import random
 
 print('Welcome to the game of Tic Tac Toe\n')
 
-# function that prints out a 3x3 board. 
-
+# function that prints out a 3x3 board
 def display_board(board):
 
     print(board[1]+'|'+board[2]+'|'+board[3])
@@ -20,7 +19,6 @@ display_board(placeholder_board)
 print('\n')
 
 # function that can take in a player input and assign their marker as 'X' or 'O'
-
 def player_input():
 
     marker = ''
@@ -39,13 +37,11 @@ def player_input():
     return (player1,player2)
 
 # function that takes in the board list object, a marker ('X' or 'O'), and a desired position (number 1-9) and assigns it to the board
-
 def place_marker(board,marker,position):
 
     board[position] = marker
 
 # function that takes in a board list object and checks if someone has won
-
 def win_check(board,mark):
 
     return((board[1] == mark and board[2] == mark and board[3] == mark ) or     #row
@@ -58,7 +54,6 @@ def win_check(board,mark):
     (board[7] == mark and board[5] == mark and board[3] == mark ))              #diagonal
 
 # function that uses the random module to randomly decide which player goes first
-
 def choose_first():
     flip = random.randint(0,1)
 
@@ -68,13 +63,11 @@ def choose_first():
         return 'Player 2'
 
 # function that returns a boolean indicating whether a space on the board is freely available
-
 def space_check(test_board,position):
 
     return test_board[position] == ' '
 
 # function that checks if the board is full and returns a boolean value. True if full, False otherwise
-
 def full_board_check(test_board):
     for i in range(1,10):
         if space_check(test_board,i) == True:
@@ -83,7 +76,6 @@ def full_board_check(test_board):
 
 # function that asks for a player's next position (as a number 1-9) and then uses the function from step 6 to check if its a free position.
 # if it is, then return the position for later use
-
 def player_choice(test_board):
 
     position = 0
@@ -94,14 +86,12 @@ def player_choice(test_board):
     return position
 
 # function that asks the player if they want to play again and returns a boolean True if they do want to play again
-
 def replay():
 
     choice = input("Play Again? Enter Yes or No: ").lower()
     return choice == 'yes'
 
 # function that maintains a leaderboard
-
 def leaderboard(player1_count,player2_count):
     
     print('Current Leaderboard!')
@@ -110,7 +100,6 @@ def leaderboard(player1_count,player2_count):
     print("\n")
 
 # actual game logic
-
 player1_count = 0
 player2_count = 0
 
