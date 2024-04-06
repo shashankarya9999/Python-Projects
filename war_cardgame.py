@@ -4,8 +4,7 @@ suits = ('hearts','diamonds','spades','clubs')
 rank = ('two','three','four','five','six','seven','eight','nine','ten','jack','queen','king','ace')
 values = {'two':2,'three':3,'four':4,'five':5,'six':6,'seven':7,'eight':8,'nine':9,'ten':10,'jack':11,'queen':12,'king':13,'ace':14}
 
-class Card:   
-    
+class Card:       
     def __init__(self,suit,rank):
         self.suit = suit.lower()
         self.rank = rank.lower()
@@ -14,8 +13,7 @@ class Card:
     def __str__(self):
         return self.rank + ' of ' + self.suit
 
-class Deck:    
-    
+class Deck:       
     def __init__(self):
         self.all_cards = []
 
@@ -27,7 +25,6 @@ class Deck:
                 self.all_cards.append(created_card)
 
     def shuffle(self):
-
         random.shuffle(self.all_cards)      # this method does not return anything because this shuffling of list occurs in-place
 
     def deal_one(self):             # one card is being drawn out from deck and returned
@@ -95,15 +92,13 @@ while game_on:
     while at_war:
         
         # -1 to make sure the latest card added in one_cards is compared.
-        if player_one_cards[-1].values > player_two_cards[-1].values:
-            
+        if player_one_cards[-1].values > player_two_cards[-1].values:            
             player_one.add_cards(player_one_cards)
             player_one.add_cards(player_two_cards)
 
             at_war = False
 
-        elif player_two_cards[-1].values > player_one_cards[-1].values:
-        
+        elif player_two_cards[-1].values > player_one_cards[-1].values:        
             player_two.add_cards(player_one_cards)
             player_two.add_cards(player_two_cards)
 
@@ -128,4 +123,3 @@ while game_on:
                 for num in range(5):
                     player_one_cards.append(player_one.remove_one())
                     player_two_cards.append(player_two.remove_one())
-
