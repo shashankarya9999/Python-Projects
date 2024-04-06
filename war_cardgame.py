@@ -1,3 +1,5 @@
+##########################################################################################################################################################################################################################################  WAR  #################################################################################### ################################################################################################################################################################## 
+
 import random
 
 suits = ('hearts','diamonds','spades','clubs')
@@ -19,9 +21,7 @@ class Deck:
 
         for suit in suits:
             for ranks in rank:
-
                 created_card = Card(suit,ranks)
-
                 self.all_cards.append(created_card)
 
     def shuffle(self):
@@ -31,7 +31,6 @@ class Deck:
         return self.all_cards.pop() 
 
 class Player:
-
     def __init__(self,name):
         self.name = name
         self.all_cards = []
@@ -88,20 +87,18 @@ while game_on:
     player_two_cards.append(player_two.remove_one())
 
     at_war = True
-
+    
     while at_war:
         
         # -1 to make sure the latest card added in one_cards is compared.
         if player_one_cards[-1].values > player_two_cards[-1].values:            
             player_one.add_cards(player_one_cards)
             player_one.add_cards(player_two_cards)
-
             at_war = False
 
         elif player_two_cards[-1].values > player_one_cards[-1].values:        
             player_two.add_cards(player_one_cards)
             player_two.add_cards(player_two_cards)
-
             at_war = False
 
         else:
