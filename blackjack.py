@@ -7,7 +7,6 @@ values = {'two':2,'three':3,'four':4,'five':5,'six':6,'seven':7,'eight':8,'nine'
 playing = True
 
 class Card():
-
     def __init__(self,suit,rank):
         self.suit = suit.lower()
         self.rank = rank.lower()
@@ -16,7 +15,6 @@ class Card():
         return self.rank + " of " + self.suit
 
 class Deck():
-
     def __init__(self):
         self.deck = []
 
@@ -40,7 +38,6 @@ class Deck():
         return single_card
 
 class Hand:
-
     def __init__(self):
         self.cards = []      # starts with an empty list
         self.value = 0       # start with zero value
@@ -64,7 +61,6 @@ class Hand:
             self.aces -= 1
 
 class Chips:
-
     def __init__(self,total = 100):
         self.total = total      # can be a default value or supplied by user input
         self.bet = 0
@@ -76,7 +72,6 @@ class Chips:
         self.total -= self.bet
 
 def take_bet(chips):
-
     while True:
 
         try:
@@ -94,13 +89,11 @@ def take_bet(chips):
                 break
 
 def hit(deck,hand):
-
     single_card = deck.deal()
     hand.add_card(single_card)
     hand.adjust_for_ace()
 
 def hit_or_stand(deck,hand):
-
     global playing      # to control an upcoming while loop
 
     while True:
@@ -118,8 +111,7 @@ def hit_or_stand(deck,hand):
             continue
         break
 
-def show_some(player,dealer):
-
+def show_some(player,dealer):    
     # dealer.cards[1]
     # show only one of the dealer's cards
     
@@ -134,7 +126,6 @@ def show_some(player,dealer):
         print(card)
 
 def show_all(player,dealer):
-
     # show all of dealer's cards
     print("\n Dealer's hand:")
     for card in dealer.cards:
@@ -142,7 +133,6 @@ def show_all(player,dealer):
 
     # calculate and display value(J+k==20)
     print("Value of Dealer's Hand is: {}".format(dealer.value))
-
 
     # show all of the player's cards
     print("\n Player's hand:")
@@ -171,7 +161,7 @@ def push(player,dealer):
     print("Dealer and Player tie! Push!")
 
 # actual game logic
-    while True:
+while True:
     print("Welcome to BlackJack")
 
     # Create & shuffle the deck, deal two cards to each player
@@ -196,7 +186,7 @@ def push(player,dealer):
     show_some(player_hand,dealer_hand)
 
     while playing:      # this variable is from hit_or_stand function
-
+        
         # prompt for player to hit or stand
         hit_or_stand(deck,player_hand)
 
@@ -206,12 +196,10 @@ def push(player,dealer):
         # if player's hand exceeds 21, run player_busts() and break out of loop
         if player_hand.value > 21:
             player_busts(player_hand,dealer_hand,player_chips)
-
             break
 
     # if player hasn't busted, play dealer's hand until dealer reaches 17
     if player_hand.value <= 21:
-
         while dealer_hand.value < player_hand.value:
             hit(deck,dealer_hand) 
          
@@ -230,8 +218,7 @@ def push(player,dealer):
 
         else:
             push(player_hand,dealer_hand)
-
-
+            
     # Inform Player of their chips total    
     print("\n Player total chips are at: {}".format(player_chips.total))
 
@@ -244,6 +231,4 @@ def push(player,dealer):
 
     else:
         print("Thank you for playing!")
-
         break
-
