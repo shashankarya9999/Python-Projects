@@ -88,7 +88,6 @@ def take_bet(chips):
             if chips.bet > chips.total:
                 print("Sorry, you do not have enough chips!")
                 print("You have: {}".format(chips.total))
-
             else:
                 break
 
@@ -213,13 +212,13 @@ while True:
         # run different winning scenarios
         if dealer_hand.value > 21:
             dealer_busts(player_hand,dealer_hand, player_chips)
-        
+            
         elif dealer_hand.value > player_hand.value:
             dealer_wins(player_hand,dealer_hand,player_chips)
-
+            
         elif dealer_hand.value < player_hand.value:
             player_wins(player_hand,dealer_hand,player_chips)
-
+        
         else:
             push(player_hand,dealer_hand)
             
@@ -232,7 +231,6 @@ while True:
     if new_game[0].lower() == 'y':
         playing = True
         continue
-
     else:
         print("Thank you for playing!")
         break
