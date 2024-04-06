@@ -1,3 +1,7 @@
+################################################################################################################################################################
+##################################################################  TIC-TAC-TOE  ###############################################################################
+################################################################################################################################################################
+
 import random
 
 # function that prints out a 3x3 board
@@ -6,20 +10,10 @@ def display_board(board):
     print(board[4]+'|'+board[5]+'|'+board[6])
     print(board[7]+'|'+board[8]+'|'+board[9])
 
-board = ['#',' ',' ',' ',' ',' ',' ',' ',' ',' ']
-
-print('Welcome to the game of Tic Tac Toe\n')
-print("The following is the indexing method. Input accordingly!\n")
-
-placeholder_board = ['#','1','2','3','4','5','6','7','8','9']
-display_board(placeholder_board)
-
-print('\n')
-
 # function that can take in a player input and assign their marker as 'X' or 'O'
 def player_input():
     marker = ''
-
+    
     while marker != 'X' and marker != 'O':
         marker = input('Player 1, Choose X or O: ').upper()
 
@@ -39,19 +33,19 @@ def place_marker(board,marker,position):
 
 # function that takes in a board list object and checks if someone has won
 def win_check(board,mark):
-    return((board[1] == mark and board[2] == mark and board[3] == mark ) or     #row
-    (board[4] == mark and board[5] == mark and board[6] == mark ) or            #row
-    (board[7] == mark and board[8] == mark and board[9] == mark ) or            #row
-    (board[1] == mark and board[4] == mark and board[7] == mark ) or            #column
-    (board[2] == mark and board[5] == mark and board[8] == mark ) or            #column
-    (board[3] == mark and board[6] == mark and board[9] == mark ) or            #column
-    (board[1] == mark and board[5] == mark and board[9] == mark ) or            #diagonal
-    (board[7] == mark and board[5] == mark and board[3] == mark ))              #diagonal
+    return( (board[1] == mark and board[2] == mark and board[3] == mark ) or            #row
+            (board[4] == mark and board[5] == mark and board[6] == mark ) or            #row
+            (board[7] == mark and board[8] == mark and board[9] == mark ) or            #row
+            (board[1] == mark and board[4] == mark and board[7] == mark ) or            #column
+            (board[2] == mark and board[5] == mark and board[8] == mark ) or            #column
+            (board[3] == mark and board[6] == mark and board[9] == mark ) or            #column
+            (board[1] == mark and board[5] == mark and board[9] == mark ) or            #diagonal
+            (board[7] == mark and board[5] == mark and board[3] == mark ))              #diagonal
 
 # function that uses the random module to randomly decide which player goes first
 def choose_first():
     flip = random.randint(0,1)
-
+    
     if flip == 0:
         return 'Player 1'
     else:
@@ -72,7 +66,7 @@ def full_board_check(test_board):
 # if it is, then return the position for later use
 def player_choice(test_board):
     position = 0
-
+    
     while position not in [1,2,3,4,5,6,7,8,9] or not space_check(test_board,position):
         position = int(input('Choose a position (1-9): '))
 
@@ -90,10 +84,17 @@ def leaderboard(player1_count,player2_count):
     print("Player2's score: {}".format(player2_count))
     print("\n")
 
-# actual game logic
+print('Welcome to the game of Tic Tac Toe\n')
+print("The following is the indexing method. Input accordingly!\n")
+
+placeholder_board = ['#','1','2','3','4','5','6','7','8','9']
+display_board(placeholder_board)
+print('\n')
+
 player1_count = 0
 player2_count = 0
 
+# actual game logic
 while True:
     the_board = [' ']*10
     player1_marker , player2_marker = player_input()
@@ -122,7 +123,6 @@ while True:
                 print('Player 1 has won!\n')
                 game_on = False
                 player1_count += 1
-
             else:
                 if full_board_check(the_board) == True:
                     display_board(the_board)
@@ -130,7 +130,6 @@ while True:
                     game_on = False
                 else:
                     turn = 'Player 2'
-
         else:
             # show the board    
             display_board(the_board)
@@ -144,7 +143,6 @@ while True:
                 print('Player 2 has won!\n')
                 game_on = False
                 player2_count += 1
-
             else:
                 if full_board_check(the_board) == True:
                     display_board(the_board)
@@ -154,7 +152,7 @@ while True:
                     turn = 'Player 1'
     
     # leaderboard
-    leaderboard(player1_count,player2_count)    
-
+    leaderboard(player1_count,player2_count)  
+    
     if not replay():
         break
