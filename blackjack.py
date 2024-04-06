@@ -42,8 +42,8 @@ class Deck():
 class Hand:
 
     def __init__(self):
-        self.cards = []     # starts with an empty list
-        self.value = 0      # start with zero value
+        self.cards = []      # starts with an empty list
+        self.value = 0       # start with zero value
         self.aces = 0        # adds an attribute to keep track of aces
 
     def add_card(self,card):
@@ -136,18 +136,15 @@ def show_some(player,dealer):
 def show_all(player,dealer):
 
     # show all of dealer's cards
-    
     print("\n Dealer's hand:")
     for card in dealer.cards:
         print(card)
 
     # calculate and display value(J+k==20)
-
     print("Value of Dealer's Hand is: {}".format(dealer.value))
 
 
     # show all of the player's cards
-
     print("\n Player's hand:")
     for card in player.cards:
         print(card)
@@ -173,13 +170,11 @@ def dealer_wins(player,dealer,chips):
 def push(player,dealer):
     print("Dealer and Player tie! Push!")
 
-# GAME LOGIC
-
-while True:
+# actual game logic
+    while True:
     print("Welcome to BlackJack")
 
     # Create & shuffle the deck, deal two cards to each player
-
     deck = Deck()
     deck.shuffle()
 
@@ -192,47 +187,38 @@ while True:
     dealer_hand.add_card(deck.deal())
 
     # set up player's chips
-
     player_chips = Chips()
 
     # prompt player for their bet
-
     take_bet(player_chips)
 
     # show cards(but keep one dealer card hidden)
-
     show_some(player_hand,dealer_hand)
 
     while playing:      # this variable is from hit_or_stand function
 
         # prompt for player to hit or stand
-
         hit_or_stand(deck,player_hand)
 
         # show cards (but keep one dealer card hidden)
-
         show_some(player_hand,dealer_hand)
 
         # if player's hand exceeds 21, run player_busts() and break out of loop
-
         if player_hand.value > 21:
             player_busts(player_hand,dealer_hand,player_chips)
 
             break
 
     # if player hasn't busted, play dealer's hand until dealer reaches 17
-
     if player_hand.value <= 21:
 
         while dealer_hand.value < player_hand.value:
             hit(deck,dealer_hand) 
          
         # show all cards
-
         show_all(player_hand,dealer_hand)
 
         # run different winning scenarios
-
         if dealer_hand.value > 21:
             dealer_busts(player_hand,dealer_hand, player_chips)
         
@@ -246,12 +232,10 @@ while True:
             push(player_hand,dealer_hand)
 
 
-    # Inform Player of their chips total
-    
+    # Inform Player of their chips total    
     print("\n Player total chips are at: {}".format(player_chips.total))
 
     # Ask to play again
-
     new_game = input("Would you like to play again? y/n: ")
 
     if new_game[0].lower() == 'y':
