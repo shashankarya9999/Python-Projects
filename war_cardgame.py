@@ -93,6 +93,7 @@ while game_on:
     at_war = True
 
     while at_war:
+        
         # -1 to make sure the latest card added in one_cards is compared.
         if player_one_cards[-1].values > player_two_cards[-1].values:
             
