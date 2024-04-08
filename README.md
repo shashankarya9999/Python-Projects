@@ -1,6 +1,8 @@
 # Python Projects
 
-This repository serves as a collection of some of my Python projects.
+This repository serves as a collection of some of my Python projects. 
+
+Stay tuned as I will be posting more of my projects in this repository!
 
 ## Projects
 
