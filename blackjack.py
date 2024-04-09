@@ -131,6 +131,7 @@ def show_some(player,dealer):
 def show_all(player,dealer):
     # show all of dealer's cards
     print("\n Dealer's hand:")
+    
     for card in dealer.cards:
         print(card)
 
