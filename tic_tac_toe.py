@@ -60,6 +60,7 @@ def full_board_check(test_board):
     for i in range(1,10):
         if space_check(test_board,i) == True:
             return False
+    
     return True
 
 # function that asks for a player's next position (as a number 1-9) and then uses the function from step 6 to check if its a free position.
@@ -75,6 +76,7 @@ def player_choice(test_board):
 # function that asks the player if they want to play again and returns a boolean True if they do want to play again
 def replay():
     choice = input("Play Again? Enter Yes or No: ").lower()
+    
     return choice == 'yes'
 
 # function that maintains a leaderboard
