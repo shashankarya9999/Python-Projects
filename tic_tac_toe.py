@@ -40,7 +40,7 @@ def win_check(board,mark):
             (board[2] == mark and board[5] == mark and board[8] == mark ) or            #column
             (board[3] == mark and board[6] == mark and board[9] == mark ) or            #column
             (board[1] == mark and board[5] == mark and board[9] == mark ) or            #diagonal
-            (board[7] == mark and board[5] == mark and board[3] == mark ))              #diagonal
+            (board[7] == mark and board[5] == mark and board[3] == mark )    )          #diagonal
 
 # function that uses the random module to randomly decide which player goes first
 def choose_first():
