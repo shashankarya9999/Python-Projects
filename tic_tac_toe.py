@@ -62,7 +62,7 @@ def full_board_check(test_board):
             return False
     
     return True
-
+    
 # function that asks for a player's next position (as a number 1-9) and then uses the function from step 6 to check if its a free position.
 # if it is, then return the position for later use
 def player_choice(test_board):
