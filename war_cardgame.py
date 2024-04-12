@@ -4,9 +4,9 @@
 
 import random
 
-suits = ('hearts','diamonds','spades','clubs')
-rank = ('two','three','four','five','six','seven','eight','nine','ten','jack','queen','king','ace')
-values = {'two':2,'three':3,'four':4,'five':5,'six':6,'seven':7,'eight':8,'nine':9,'ten':10,'jack':11,'queen':12,'king':13,'ace':14}
+suits = ( 'hearts', 'diamonds', 'spades', 'clubs' )
+rank = ( 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace' )
+values = { 'two':2, 'three':3, 'four':4, 'five':5, 'six':6, 'seven':7, 'eight':8, 'nine':9, 'ten':10, 'jack':11, 'queen':12, 'king':13, 'ace':14 }
 
 class Card:       
     def __init__(self,suit,rank):
@@ -79,9 +79,8 @@ while game_on:
         game_on = False
         break
 
-    # Start a new round
-    # Card the player leaves on the table
-
+    # start a new round
+    # card the player leaves on the table
     player_one_cards = []
     player_one_cards.append(player_one.remove_one())      
     
@@ -91,7 +90,6 @@ while game_on:
     at_war = True
     
     while at_war:
-        
         # -1 to make sure the latest card added in one_cards is compared.
         if player_one_cards[-1].values > player_two_cards[-1].values:            
             player_one.add_cards(player_one_cards)
