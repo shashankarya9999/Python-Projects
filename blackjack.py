@@ -56,10 +56,8 @@ class Hand:
             self.aces += 1
             
     def adjust_for_ace(self):
-        
         # if total value > 21 and I still have an ace
         # then change my ace to be 1 instead of an 11
-         
         while self.value > 21 and self.aces > 0:
             self.value -= 10
             self.aces -= 1
@@ -77,7 +75,6 @@ class Chips:
 
 def take_bet(chips):
     while True:
-
         try:
             chips.bet = int(input("How many chips would you like to bet?: "))
             
@@ -112,18 +109,17 @@ def hit_or_stand(deck,hand):
         else:
             print("Sorry, Please enter h or s only!")
             continue
+        
         break
 
 def show_some(player,dealer):    
     # dealer.cards[1]
     # show only one of the dealer's cards
-    
     print("\n Dealer's Hand: ")
     print("First card hidden!")
     print(dealer.cards[1])
 
     # show all of the player's cards/hand
-
     print("\n Player's hand:")
     for card in player.cards:
         print(card)
@@ -189,8 +185,8 @@ while True:
     # show cards(but keep one dealer card hidden)
     show_some(player_hand,dealer_hand)
 
-    while playing:      # this variable is from hit_or_stand function
-        
+    # this variable is from hit_or_stand function
+    while playing:  
         # prompt for player to hit or stand
         hit_or_stand(deck,player_hand)
 
