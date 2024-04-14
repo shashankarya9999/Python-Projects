@@ -27,9 +27,9 @@ class Deck:
                 self.all_cards.append(created_card)
 
     def shuffle(self):
-        random.shuffle(self.all_cards)      # this method does not return anything because this shuffling of list occurs in-place
+        random.shuffle(self.all_cards)    # this method does not return anything because this shuffling of list occurs in-place
 
-    def deal_one(self):             # one card is being drawn out from deck and returned
+    def deal_one(self):    # one card is being drawn out from deck and returned
         return self.all_cards.pop() 
 
 class Player:
@@ -47,7 +47,7 @@ class Player:
             self.all_cards.append(new_cards)        # for a single card object
 
     def __str__(self):
-        return "Player {} has {} cards.".format(self.name,len(self.all_cards))      # f-string did not work in vs code
+        return "Player {} has {} cards.".format(self.name,len(self.all_cards))      # f-string was showing error in VS code
 
 player_one = Player("One")
 player_two = Player("Two")
