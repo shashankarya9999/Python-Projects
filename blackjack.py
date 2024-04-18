@@ -4,11 +4,9 @@
 
 import random
 
-suits = ('hearts','diamonds','spades','clubs')
-ranks = ('two','three','four','five','six','seven','eight','nine','ten','jack','queen','king','ace')
-values = {'two':2,'three':3,'four':4,'five':5,'six':6,'seven':7,'eight':8,'nine':9,'ten':10,'jack':10,'queen':10,'king':10,'ace':11}
-
-playing = True
+suits = ( 'hearts', 'diamonds', 'spades', 'clubs' )
+ranks = ( 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace' )
+values = { 'two':2, 'three':3, 'four':4, 'five':5, 'six':6, 'seven':7, 'eight':8, 'nine':9, 'ten':10, 'jack':10, 'queen':10, 'king':10, 'ace':11 }
 
 class Card():
     def __init__(self,suit,rank):
@@ -161,10 +159,12 @@ def push(player,dealer):
     print("Dealer and Player tie! Push!")
 
 # actual game logic
+playing = True
+
 while True:
     print("Welcome to BlackJack")
 
-    # Create & shuffle the deck, deal two cards to each player
+    # create & shuffle the deck, deal two cards to each player
     deck = Deck()
     deck.shuffle()
 
@@ -219,10 +219,10 @@ while True:
         else:
             push(player_hand,dealer_hand)
             
-    # Inform Player of their chips total    
+    # inform Player of their chips total    
     print("\n Player total chips are at: {}".format(player_chips.total))
 
-    # Ask to play again
+    # ask to play again
     new_game = input("Would you like to play again? y/n: ")
 
     if new_game[0].lower() == 'y':
