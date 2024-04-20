@@ -6,9 +6,9 @@ import random
 
 # function that prints out a 3x3 board
 def display_board(board):
-    print(board[1]+'|'+board[2]+'|'+board[3])
-    print(board[4]+'|'+board[5]+'|'+board[6])
-    print(board[7]+'|'+board[8]+'|'+board[9])
+    print( board[1] + '|' + board[2] + '|' + board[3] )
+    print( board[4] + '|' + board[5] + '|' + board[6] )
+    print( board[7] + '|' + board[8] + '|' + board[9] )
 
 # function that can take in a player input and assign their marker as 'X' or 'O'
 def player_input():
@@ -25,10 +25,10 @@ def player_input():
     else:
         player2 = 'X'
 
-    return (player1,player2)
+    return ( player1, player2 )
 
 # function that takes in the board list object, a marker ('X' or 'O'), and a desired position (number 1-9) and assigns it to the board
-def place_marker(board,marker,position):
+def place_marker( board, marker, position ):
     board[position] = marker
 
 # function that takes in a board list object and checks if someone has won
@@ -52,7 +52,7 @@ def choose_first():
         return 'Player 2'
 
 # function that returns a boolean indicating whether a space on the board is freely available
-def space_check(test_board,position):
+def space_check( test_board, position ):
     return test_board[position] == ' '
 
 # function that checks if the board is full and returns a boolean value. True if full, False otherwise
@@ -80,7 +80,7 @@ def replay():
     return choice == 'yes'
 
 # function that maintains a leaderboard
-def leaderboard(player1_count,player2_count):    
+def leaderboard( player1_count, player2_count ):    
     print('Current Leaderboard!')
     print("Player1's score: {}".format(player1_count))
     print("Player2's score: {}".format(player2_count))
@@ -118,9 +118,9 @@ while True:
             # choose a position
             position = player_choice(the_board)
             # place the marker on the position
-            place_marker(the_board,player1_marker,position)
+            place_marker( the_board, player1_marker, position )
             # check if they won
-            if win_check(the_board,player1_marker):
+            if win_check( the_board, player1_marker ):
                 display_board(the_board)
                 print('Player 1 has won!\n')
                 game_on = False
@@ -138,9 +138,9 @@ while True:
             # choose a position
             position = player_choice(the_board)
             # place the marker on the position
-            place_marker(the_board,player2_marker,position)
+            place_marker( the_board, player2_marker, position )
             # check if they won
-            if win_check(the_board,player2_marker):
+            if win_check( the_board, player2_marker ):
                 display_board(the_board)
                 print('Player 2 has won!\n')
                 game_on = False
@@ -154,7 +154,7 @@ while True:
                     turn = 'Player 1'
     
     # leaderboard
-    leaderboard(player1_count,player2_count)  
+    leaderboard( player1_count, player2_count )  
     
     if not replay():
         break
