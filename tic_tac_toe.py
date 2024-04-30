@@ -98,7 +98,7 @@ player2_count = 0
 
 # actual game logic
 while True:
-    the_board = [' ']*10
+    the_board = [' '] * 10
     player1_marker , player2_marker = player_input()
 
     turn = choose_first()
@@ -135,10 +135,13 @@ while True:
         else:
             # show the board    
             display_board(the_board)
+            
             # choose a position
             position = player_choice(the_board)
+            
             # place the marker on the position
             place_marker( the_board, player2_marker, position )
+            
             # check if they won
             if win_check( the_board, player2_marker ):
                 display_board(the_board)
