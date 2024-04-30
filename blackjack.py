@@ -129,7 +129,7 @@ def show_all(player,dealer):
     for card in dealer.cards:
         print(card)
 
-    # calculate and display value(J+k==20)
+    # calculate and display value(J+K==20)
     print("Value of Dealer's Hand is: {}".format(dealer.value))
 
     # show all of the player's cards
